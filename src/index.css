@@ -1,36 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 42 25% 96%;
+    --foreground: 25 35% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 40 30% 98%;
+    --card-foreground: 25 35% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 40 30% 98%;
+    --popover-foreground: 25 35% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 30 35% 45%;
+    --primary-foreground: 40 30% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 40 20% 88%;
+    --secondary-foreground: 25 35% 20%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 40 20% 92%;
+    --muted-foreground: 25 20% 40%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 43 74% 49%;
+    --accent-foreground: 25 35% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 30 20% 85%;
+    --input: 30 20% 85%;
+    --ring: 30 35% 45%;
 
     --radius: 0.5rem;
 
@@ -97,5 +99,66 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: "Crimson Text", serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Cormorant Garamond", serif;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .ornament {
+    position: relative;
+  }
+
+  .ornament::before,
+  .ornament::after {
+    content: "❦";
+    position: absolute;
+    color: hsl(var(--accent));
+    opacity: 0.3;
+    font-size: 1.5rem;
+  }
+
+  .ornament::before {
+    left: -2rem;
+  }
+
+  .ornament::after {
+    right: -2rem;
+  }
+
+  .vintage-shadow {
+    box-shadow:
+      0 4px 6px -1px rgba(139, 115, 85, 0.1),
+      0 2px 4px -1px rgba(139, 115, 85, 0.06);
+  }
+
+  .paper-texture {
+    background-image: repeating-linear-gradient(
+      0deg,
+      rgba(139, 115, 85, 0.03) 0px,
+      transparent 1px,
+      transparent 2px,
+      rgba(139, 115, 85, 0.03) 3px
+    );
+  }
+
+  .hover-scale {
+    transition: transform 0.2s ease-out;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.02);
   }
 }
